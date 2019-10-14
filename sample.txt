@@ -1,3 +1,0 @@
-sample.txt
-
-This is a random thing for the git exercises. This is to simulate another developer.
