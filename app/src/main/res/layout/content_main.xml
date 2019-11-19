@@ -14,12 +14,11 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:defaultNavHost="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/mobile_navigation"
-        />
+        app:navGraph="@navigation/mobile_navigation" />
 
     <Button
         android:id="@+id/button_id"
@@ -30,7 +29,7 @@
         android:layout_marginEnd="160dp"
         android:layout_marginBottom="99dp"
         android:onClick="loadWebPage"
-        android:text="Emotional First Aid"
+        android:text="@string/first_aid"
         android:textColor="@android:color/white"
         android:background="@android:color/holo_red_dark"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,4 +37,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="174dp"
+        android:layout_marginTop="352dp"
+        android:layout_marginEnd="178dp"
+        android:layout_marginBottom="360dp"
+        android:text="This is where we can put the quote"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_host_fragment"
+        app:layout_constraintEnd_toEndOf="@+id/nav_host_fragment"
+        app:layout_constraintStart_toStartOf="@+id/nav_host_fragment"
+        app:layout_constraintTop_toTopOf="@+id/nav_host_fragment" />
 </androidx.constraintlayout.widget.ConstraintLayout>

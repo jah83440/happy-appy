@@ -13,4 +13,6 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="menu_music">Music</string>
+    <string name="first_aid">Emotional First Aid</string>
 </resources>
