@@ -15,4 +15,8 @@
     <string name="menu_send">Send</string>
     <string name="menu_music">Music</string>
     <string name="first_aid">Emotional First Aid</string>
+    <string name="menu_preset1">Preset Calendar 1</string>
+    <string name="menu_preset2">Preset Calendar 2</string>
+    <string name="menu_preset3">Preset Calendar 3</string>
+    <string name="menu_build">Build Your Own Calendar</string>
 </resources>

@@ -12,10 +12,28 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.happy_appy.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_preset1"
+        android:name="com.example.happy_appy.ui.presets.Preset1Fragment"
+        android:label="@string/menu_preset1"
+        tools:layout="@layout/preset1_fragment" />
+
+    <fragment
+        android:id="@+id/nav_preset2"
+        android:name="com.example.happy_appy.ui.presets.Preset2Fragment"
+        android:label="@string/menu_preset2"
+        tools:layout="@layout/preset2_fragment" />
+
+    <fragment
+        android:id="@+id/nav_preset3"
+        android:name="com.example.happy_appy.ui.presets.Preset3Fragment"
+        android:label="@string/menu_preset3"
+        tools:layout="@layout/preset3_fragment" />
+
+    <fragment
+        android:id="@+id/menu_build"
+        android:name="com.example.happy_appy.ui.presets.BuildFragment"
+        android:label="@string/menu_build"
+        tools:layout="@layout/build_fragment" />
 
     <fragment
         android:id="@+id/nav_music"
