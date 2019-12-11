@@ -18,6 +18,7 @@
     <string name="menu_preset2">Preset Phase 2</string>
     <string name="menu_preset3">Preset Phase 3</string>
     <string name="menu_build">Custom Calendar</string>
+    <string name="emote_first_aid">Emotional First Aid</string>
 
     <string name="happy__noti_notification_title_template">Happy noti: %1$s</string>
 
@@ -33,4 +34,7 @@
 
     <string name="action_share">Share</string>
     <string name="action_reply">Reply</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

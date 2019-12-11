@@ -46,5 +46,10 @@
         android:name="com.example.happy_appy.ui.tools.ToolsFragment"
         android:label="@string/menu_tools"
         tools:layout="@layout/fragment_tools" />
+    <fragment
+        android:id="@+id/emote_first_aid"
+        android:name="com.example.happy_appy.ui.EmoteFragment"
+        android:label="@string/first_aid"
+        tools:layout="@layout/emote_fragment" />
 
 </navigation>

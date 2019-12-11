@@ -32,6 +32,10 @@
             android:id="@+id/nav_tools"
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/menu_tools" />
+        <item
+            android:id="@+id/emote_first_aid"
+            android:icon="@drawable/baseline_sentiment_very_dissatisfied_24"
+            android:title="@string/emote_first_aid" />
     </group>
 
 

@@ -1,6 +1,7 @@
 package com.example.happy_appy;
 
 import android.annotation.TargetApi;
+import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -9,8 +10,11 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.SystemClock;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -27,7 +31,7 @@ public class Happy_Noti {
      * The unique identifier for this type of notification.
      */
     private static final String NOTIFICATION_TAG = "Happy_Noti";
-    final int notificationID = 1;
+
     /**
      * Shows the notification, or updates a previously shown notification of
      * this type, with the given parameters.
@@ -48,8 +52,8 @@ public class Happy_Noti {
         final Resources res = context.getResources();
 
         // This image is used as the notification's large icon (thumbnail).
-        // TODO: Remove this if your notification has no relevant thumbnail.
-        final Bitmap picture = BitmapFactory.decodeResource(res, R.drawable.example_picture);
+
+        final Bitmap picture = BitmapFactory.decodeResource(res, R.drawable.happy_appy_notification);
 
 
         final String ticker = exampleString;
@@ -91,10 +95,9 @@ public class Happy_Noti {
                 // should set the relevant time information using the setWhen
                 // method below. If this call is omitted, the notification's
                 // timestamp will by set to the time at which it was shown.
-                // TODO: Call setWhen if this notification relates to a past or
                 // upcoming event. The sole argument to this method should be
                 // the notification timestamp in milliseconds.
-                //.setWhen(...)
+                //.setWhen()
 
                 // Set the pending intent to be initiated when the user touches
                 // the notification.
@@ -162,6 +165,35 @@ public class Happy_Noti {
         } else {
             nm.cancel(NOTIFICATION_TAG.hashCode());
         }
+    }
+    public void scheduleNotification(Context context, long delay, int notificationID){
+        final Resources res = context.getResources();
+        final String title = res.getString(
+                R.string.happy__noti_notification_title_template);
+        final String text = res.getString(
+                R.string.happy__noti_notification_placeholder_text_template);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
+                .setContentTitle(title)
+                .setContentText(text)
+                .setAutoCancel(true)
+                .setSmallIcon(R.drawable.happy_appy_notification)
+                .setLargeIcon(((BitmapDrawable) context.getResources().getDrawable(R.drawable.happy_appy_notification)).getBitmap())
+                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
+
+        Intent intent = new Intent(context, MainActivity.class);
+        PendingIntent activity = PendingIntent.getActivity(context, notificationID, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        builder.setContentIntent(activity);
+
+        Notification notification = builder.build();
+
+        Intent notificationIntent = new Intent(context, MyNotificationPublisher.class);
+        notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION_ID, notificationID);
+        notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION, notification);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, notificationID, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+
+        long futureInMillis = SystemClock.elapsedRealtime() + delay;
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, pendingIntent);
     }
 
 }
